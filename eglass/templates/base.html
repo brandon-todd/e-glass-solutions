@@ -1,0 +1,66 @@
+{%load static %}
+{% load bootstrap4 %}
+<!doctype html>
+<html lang = 'en'>
+<head>
+  <meta charset = "utf-8">
+  <meta name = "viewport" content=width="device-width" inital-scale = 1 shrink-to-fit="no">
+  <title> EGlass Solutions</title>
+  {%bootstrap_css%}
+ {%bootstrap_javascript jquery='full'%}
+<body>
+<!--<style>
+div.bubbles {
+  width : 80vw;
+  height:80vh;
+  padding: 10px;
+  border: 1px solid black;
+  background-image: url({%static 'EEElogoCMYK.jpg'%}); 
+  background-size:contain;
+  background-position:center center;
+  background-repeat: no-repeat;
+}
+
+</style>
+-->
+<div class = bubbles>
+  <nav class="navbar navbar-expand-md navbar-light bg-light mb-4 border">
+<ul class = "navbar-nav mr-auto">
+ <li class = "nav-item">
+ <a class = "navbar-brand" href="{%url 'users:index'%}">Home</a></li>
+
+ <button class="navbar-toggler" type="button" data-toggle="collapse"
+    data-target="#navbarCollapse" aria-controls="navbarCollapse"
+    aris-expanded="false" aria-label = "Toggle navigation">
+    <span class ="navbar-toggler-icon"></span></button>
+
+ <div class = "collapse navbar-collapse" id = "navbarCollapse">
+
+{%if user.is_authenticated%}
+   <li class = "nav-item">
+   <a class = "nav-link"href="{%url 'users:logout'%}">Log Out</a></li>
+   <br>
+   <li class = "nav-item">
+   <a class = "nav-link"href="{%url 'customers:customers'%}">New Customer</a></li>
+{%else%}
+  <li class = "nav-item">
+  <a class = "nav-link" href="{%url 'users:login' %}">Login</a></li>
+  <li class = "nav-item">
+  <a class = "nav-link" href="{%url 'users:signup' %}">Register</a></li>
+{%endif%}
+</ul>
+</div>
+
+</nav>
+
+<main role = "main" class = "container">
+  <div class ="pb-2 mb-2 border-bottm">
+    {%block page_header%}{%endblock page_header%}
+  </div>
+  <div>
+    {%block content%}{%endblock content%}
+  </div>
+</main>
+</div>
+</body>
+</html>
