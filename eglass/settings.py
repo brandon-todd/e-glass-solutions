@@ -76,6 +76,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'eglass.wsgi.application'
 
+TEMPLATE_PACK = 'bootstrap4'
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases

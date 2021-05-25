@@ -1,12 +1,31 @@
 {% extends 'base.html' %}
-
+{% load static %}
+{% load crispy_forms_tags %}
 {% block title %}Customer{% endblock %}
 {%load crispy_forms_tags%}
 {% block content %}
 <h2>Work Order</h2>
 <form method="post">
-  <!--{%csrf_token%}-->
   {% crispy form %}
-  {{ form|crispy }}
+  <div class = bubbles>
+  <nav class="navbar navbar-expand-md navbar-light bg-light mb-4 border">
+  <ul class = "navbar-nav mr-auto">
+  <li class = "nav-item">
+  <li class="tab-pane{% if 'active' in link.css_class %} active{% endif %}">
+  <a class = "navbar-brand" href="#{{ link.css_id }}" data-toggle="tab">{{ link.name|capfirst }}{% if tab.errors %}!{% endif %}
+  </a>
+  </li>
+  </li>
+  </ul>
+  </div>
 </form>
+<body>
+<script src="http://code.jquery.com/jquery-1.9.1.js">
+</script>
+<script src="http://code.jquery.com/ui/1.11.0/jquery-ui.js">
+</script>
+<script type="text/javascript" src="{% static 'bootstrap-tab.js' %}">  </script>
+
+</body>
+
 {% endblock %}
